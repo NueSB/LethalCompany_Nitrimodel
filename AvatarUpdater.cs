@@ -71,7 +71,7 @@ namespace NitriModel
             playerChildren = playerModelRenderer.transform.parent.GetComponentsInChildren<Transform>();
             replacementChildren = replacementModelRenderer.transform.parent.GetComponentsInChildren<Transform>();
 
-            playerModelRenderer.enabled = false;
+            //playerModelRenderer.enabled = false;
             controller.thisPlayerModelArms = replacementModelRenderer;
             controller.playerModelArmsMetarig = replacementModelRenderer.transform.parent.Find("metarig");
 
@@ -86,9 +86,11 @@ namespace NitriModel
                 if (modelBone == null) { continue; }
 
                 modelBone.rotation = playerBone.rotation;
+                if (!modelBone.name.Contains("finger"))
+                    modelBone.position = playerBone.position;
 
-                if (modelBone.name.Contains("metarig"))
-                    modelBone.localPosition = playerBone.localPosition - new Vector3(0, 2.11f, 0.012f);
+                //if (modelBone.name.Contains("metarig"))
+                //    modelBone.localPosition = playerBone.localPosition - new Vector3(0, 2.11f, 0.012f);
                 //if (modelBone.name == "spine.003")
                 //    modelBone.localPosition = playerBone.localPosition + spinePositionOffset;// - new Vector3(0, 0.0118f, -1.3636f);
                 //var offset = modelBone.GetComponent<RotationOffset>();
@@ -111,7 +113,7 @@ namespace NitriModel
             Transform rootBone = replacementAnimator.transform;
             Transform playerRootBone = playerModelRenderer.transform.parent;
 
-            rootBone.position = playerRootBone.position + playerRootBone.TransformVector(rootPositionOffset);
+            //rootBone.position = playerRootBone.position + playerRootBone.TransformVector(rootPositionOffset);
             rootBone.localScale = Vector3.Scale(playerRootBone.localScale, rootScale);
         }
         public virtual void Update()

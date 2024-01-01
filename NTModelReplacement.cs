@@ -25,10 +25,13 @@ namespace NitriModel
         protected override void OnDeath()
         {
             base.OnDeath();
+            Debug.Log("Destroying...........\n\n\n\n\n\n");
+
+            Debug.Log("our controller: " + this.controller.gameObject.name);
             // TODO: fix the recreating arms issue.
-            
-            ViewmodelReplacement customViewmodel = this.controller.GetComponent<ViewmodelReplacement>();
+            ViewmodelReplacement customViewmodel = this.controller.gameObject.GetComponent<ViewmodelReplacement>();
             Destroy(customViewmodel);
+            Debug.Log("Finsihed?");
         }
     }
 

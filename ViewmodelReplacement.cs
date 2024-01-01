@@ -29,7 +29,7 @@ namespace NitriModel
             Transform baseTransform = player.thisPlayerModelArms.transform.parent;
             baseModelTransform = baseTransform;
 
-            player.thisPlayerModelArms.enabled = false;
+            //player.thisPlayerModelArms.enabled = true;
             //player.thisPlayerModel.enabled = false;
 
             Debug.Log("ApplyModel: disabled playermodel arms");
@@ -87,7 +87,7 @@ namespace NitriModel
             Debug.Log("ApplyModel: Done!");
         }
 
-        void Update()
+        void LateUpdate()
         {
             avatar.Update();
         }
