@@ -96,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomStoreMusic.cs" />
-    <Compile Include="ViewmodelReplacement.cs" />
     <Compile Include="AvatarUpdater.cs" />
     <Compile Include="NTModelReplacement.cs" />
     <Compile Include="Plugin.cs" />

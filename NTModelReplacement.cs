@@ -11,7 +11,7 @@ using UnityEngine.UI;
 using HarmonyLib;
 using GameNetcodeStuff;
 using System.Reflection;
-
+using ModelReplacement.AvatarBodyUpdater;
 
 namespace NitriModel
 {
@@ -19,12 +19,24 @@ namespace NitriModel
     {
         protected override GameObject LoadAssetsAndReturnModel()
         {
-            return NitriModel.NitriModelBase.mainBundle.LoadAsset<GameObject>("v3-playermodel.prefab");
+            return NitriModelBase.mainBundle.LoadAsset<GameObject>("v3-playermodel.prefab");
         }
+
+        protected override GameObject LoadAssetsAndReturnViewModel()
+        {
+            return NitriModelBase.mainBundle.LoadAsset<GameObject>("v3-viewmodel.prefab");
+        }
+
+        protected override AvatarUpdater GetAvatarUpdater()
+        {
+            return new AvatarUpdaterWithArms();
+        }
+
 
         protected override void OnDeath()
         {
             base.OnDeath();
+            /*
             Debug.Log("Destroying...........\n\n\n\n\n\n");
 
             Debug.Log("our controller: " + this.controller.gameObject.name);
@@ -32,10 +44,11 @@ namespace NitriModel
             ViewmodelReplacement customViewmodel = this.controller.gameObject.GetComponent<ViewmodelReplacement>();
             Destroy(customViewmodel);
             Debug.Log("Finsihed?");
+            */
         }
     }
 
-    
+    /*
     [HarmonyPatch(typeof(PlayerControllerB))]
     internal class ViewmodelPatch
     {
@@ -67,6 +80,7 @@ namespace NitriModel
             }
         }
     }
+    */
 
     [HarmonyPatch(typeof(StartOfRound))]
     internal class UIIconPatch
