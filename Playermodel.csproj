@@ -95,6 +95,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCursor.cs" />
+    <Compile Include="CustomPlayerIcon.cs" />
     <Compile Include="CustomStoreMusic.cs" />
     <Compile Include="AvatarUpdater.cs" />
     <Compile Include="NTModelReplacement.cs" />
@@ -103,7 +105,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>move Playermodel.dll "$(LethalCompanyPath)\BepInEx\plugins\nitrimodel"
+    <PostBuildEvent>move Playermodel.dll "$(LethalCompanyPath)\BepInEx\plugins\nitrimodel\"
 "$(LethalCompanyPath)\Lethal Company.exe"</PostBuildEvent>
   </PropertyGroup>
 </Project>

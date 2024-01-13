@@ -25,9 +25,16 @@ namespace NitriModel
 
         public static NitriModelBase _instance;
 
+
         public static AssetBundle mainBundle;
 
         internal ManualLogSource log;
+
+        // UI cursor vars
+        public UnityEngine.UI.Image customCursor = null;
+        public UnityEngine.UI.Image baseCursor = null;
+        public Dictionary<string, Sprite> cursorMap { get; private set; }
+
 
         void Awake()
         {
@@ -43,9 +50,16 @@ namespace NitriModel
             string text = Path.Combine(Path.GetDirectoryName(base.Info.Location), "nitrimodel");
             NitriModelBase.mainBundle = AssetBundle.LoadFromFile(text);
 
+            cursorMap = new Dictionary<string, Sprite>
+            {
+                { "HandIcon",       mainBundle.LoadAsset<Sprite>("HandIcon.png") },
+                { "HandIconPoint",  mainBundle.LoadAsset<Sprite>("HandIconPoint.png") },
+                { "HandLadderIcon", mainBundle.LoadAsset<Sprite>("HandLadderIcon.png") },
+            };
+
             _harmony.PatchAll();
 
-            log.LogInfo("ntmodel: running! :^)");
+            log.LogInfo("ntmodel: running 2! :^)");
         }
     }
 }
