@@ -35,7 +35,7 @@ namespace NitriModel
                 selfIcon.localScale -= scale;
                 selfFilled.localScale -= scale;
             }
-            else Debug.LogError("Unable to find UI parent!");
+            else NitriModelBase._instance.log.LogError("Unable to find UI parent! Aborted icon replacement.");
         }
     }
 

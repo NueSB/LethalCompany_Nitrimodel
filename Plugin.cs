@@ -59,7 +59,7 @@ namespace NitriModel
 
             _harmony.PatchAll();
 
-            log.LogInfo("ntmodel: running 2! :^)");
+            log.LogInfo("ntmodel: running! :^)");
         }
     }
 }

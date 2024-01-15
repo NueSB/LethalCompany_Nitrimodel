@@ -42,11 +42,11 @@ namespace NitriModel
 
             if (playerViewModelRenderer == null || c2 == null)
             {
-                Debug.LogError("failed to start AvatarBodyUpdater");
+                NitriModelBase._instance.log.LogError("Failed to start AvatarBodyUpdater.");
                 return;
             }
 
-            Debug.Log("Got base and replacement viewmodel");
+            NitriModelBase._instance.log.LogInfo("Got base and replacement viewmodel.");
 
             replacementViewModelAnimator = replacement.GetComponent<Animator>();
 
@@ -60,14 +60,8 @@ namespace NitriModel
 
             viewModelRootScale = rootScale;
 
-            //replacementViewModelRenderer.material = new Material(Shader.Find("HDRP/Lit"));
-
             playerChildren = playerViewModelRenderer.transform.parent.GetComponentsInChildren<Transform>();
             replacementChildren = replacementViewModelRenderer.transform.parent.GetComponentsInChildren<Transform>();
-
-
-            //controller.thisPlayerModelArms = replacementViewModelRenderer;
-            //controller.playerModelArmsMetarig = replacementViewModelRenderer.transform.parent.Find("metarig");
 
             this.replacementViewModel = replacementViewmodel;
 
