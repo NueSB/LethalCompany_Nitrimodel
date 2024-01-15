@@ -23,8 +23,6 @@ namespace NitriModel
 
             GameObject obj;
 
-            
-
             if (NitriModelBase._instance.baseCursor == null)
             {
                 obj = GameObject.Find("Systems/UI/Canvas/PlayerCursor/Cursor");
@@ -45,7 +43,7 @@ namespace NitriModel
                                                                 customCursor.transform.localScale.y,
                                                                 customCursor.transform.localScale.z);
 
-                NitriModelBase._instance.customCursor.gameObject.name = "yuvllp";
+                NitriModelBase._instance.customCursor.gameObject.name = "NT UI Cursor";
             }
 
             customCursor = NitriModelBase._instance.customCursor;
@@ -56,9 +54,6 @@ namespace NitriModel
 
             if (baseCursor.enabled)
             {
-                Debug.Log(String.Concat(NitriModelBase._instance.baseCursor, NitriModelBase._instance.customCursor));
-
-
                 customCursor.transform.localPosition = baseCursor.transform.localPosition;
                 customCursor.transform.localRotation = baseCursor.transform.localRotation;
                 baseCursor.transform.localScale = Vector3.zero;

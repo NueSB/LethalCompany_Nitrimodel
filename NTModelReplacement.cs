@@ -21,7 +21,6 @@ namespace NitriModel
         {
             return NitriModelBase.mainBundle.LoadAsset<GameObject>("v3-playermodel.prefab");
         }
-
         protected override GameObject LoadAssetsAndReturnViewModel()
         {
             return NitriModelBase.mainBundle.LoadAsset<GameObject>("v3-viewmodel.prefab");
@@ -31,7 +30,6 @@ namespace NitriModel
         {
             return new AvatarUpdaterWithArms();
         }
-
 
         protected override void OnDeath()
         {
