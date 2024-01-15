@@ -7,8 +7,8 @@
     <ProjectGuid>{31D0E997-36E6-4C6A-872D-1B488E4F26C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Playermodel</RootNamespace>
-    <AssemblyName>Playermodel</AssemblyName>
+    <RootNamespace>Nitrimodel</RootNamespace>
+    <AssemblyName>Nitrimodel</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -105,7 +105,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>move Playermodel.dll "$(LethalCompanyPath)\BepInEx\plugins\nitrimodel\"
+    <PostBuildEvent>move Nitrimodel.dll "$(LethalCompanyPath)\BepInEx\plugins\nitrimodel\"
 "$(LethalCompanyPath)\Lethal Company.exe"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -45,7 +45,11 @@ namespace NitriModel
 
             log = BepInEx.Logging.Logger.CreateLogSource(modGUID);
 
-            ModelReplacementAPI.RegisterModelReplacementOverride(typeof(NTModelReplacement));
+            ModelReplacementAPI.RegisterModelReplacementDefault(typeof(NTModelReplacement));
+
+            ModelReplacementAPI.RegisterSuitModelReplacement("Orange suit", typeof(NTModelReplacement));
+            ModelReplacementAPI.RegisterSuitModelReplacement("Green suit",  typeof(NTModelReplacement));
+            ModelReplacementAPI.RegisterSuitModelReplacement("Purple Suit", typeof(NTModelReplacement));
 
             string text = Path.Combine(Path.GetDirectoryName(base.Info.Location), "nitrimodel");
             NitriModelBase.mainBundle = AssetBundle.LoadFromFile(text);
