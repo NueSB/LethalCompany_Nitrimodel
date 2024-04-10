@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 using ModelReplacement;
 using GameNetcodeStuff;
+using System.Reflection;
 
 namespace NitriModel
 {
@@ -35,6 +36,11 @@ namespace NitriModel
         public UnityEngine.UI.Image baseCursor = null;
         public Dictionary<string, Sprite> cursorMap { get; private set; }
 
+        public Transform heldItemTarget = null;
+        public Transform heldItem = null;
+
+        public GameObject IconParent;
+
 
         void Awake()
         {
@@ -45,11 +51,14 @@ namespace NitriModel
 
             log = BepInEx.Logging.Logger.CreateLogSource(modGUID);
 
-            ModelReplacementAPI.RegisterModelReplacementDefault(typeof(NTModelReplacement));
+            //ModelReplacementAPI.RegisterModelReplacementDefault(typeof(NTModelReplacement));
+
+            //ModelReplacementAPI.RegisterModelReplacementOverride(typeof(NTModelReplacement));
 
             ModelReplacementAPI.RegisterSuitModelReplacement("Orange suit", typeof(NTModelReplacement));
             ModelReplacementAPI.RegisterSuitModelReplacement("Green suit",  typeof(NTModelReplacement));
             ModelReplacementAPI.RegisterSuitModelReplacement("Purple Suit", typeof(NTModelReplacement));
+
 
             string text = Path.Combine(Path.GetDirectoryName(base.Info.Location), "nitrimodel");
             NitriModelBase.mainBundle = AssetBundle.LoadFromFile(text);
@@ -65,5 +74,12 @@ namespace NitriModel
 
             log.LogInfo("ntmodel: running! :^)");
         }
+
+        public void DeferItemUpdate(Transform target, Transform item)
+        {
+            this.heldItemTarget = target;
+            this.heldItem = item;
+        }
     }
 }
+

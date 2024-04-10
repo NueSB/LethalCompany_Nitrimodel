@@ -18,9 +18,24 @@ namespace NitriModel
         [HarmonyPostfix]
         static void ApplyUI()
         {
-            GameObject UIParent = GameObject.Find("Systems/UI/Canvas/IngamePlayerHUD/TopLeftCorner");
-            if (UIParent != null)
+            GameObject UIParent = GameObject.Find("Systems/UI/Canvas/IngamePlayerHUD/NT_TopLeftCorner");
+
+            if (UIParent == null)
             {
+                // create a nitri version if it doesn't exist.
+                UIParent = GameObject.Find("Systems/UI/Canvas/IngamePlayerHUD/TopLeftCorner");
+                if (UIParent == null)
+                {
+                    NitriModelBase._instance.log.LogError("Unable to find UI parent! Aborted icon replacement.");
+                    return;
+                }
+
+                //NitriModelBase._instance.IconParent = GameObject.Instantiate(UIParent);
+                //UIParent.SetActive(false);
+                
+                //UIParent = NitriModelBase._instance.IconParent;
+                //UIParent.name = "NT_TopLeftCorner";
+
                 Transform selfIcon = UIParent.transform.Find("Self");
                 Transform selfFilled = UIParent.transform.Find("SelfRed");
 
@@ -35,7 +50,26 @@ namespace NitriModel
                 selfIcon.localScale -= scale;
                 selfFilled.localScale -= scale;
             }
-            else NitriModelBase._instance.log.LogError("Unable to find UI parent! Aborted icon replacement.");
+        }
+
+        // WIP system for dynamically applying UI / attributes based on skin in use
+        static void DeapplyUI()
+        {
+            GameObject UIParent = GameObject.Find("Systems/UI/Canvas/IngamePlayerHUD/TopLeftCorner");
+            if (UIParent == null)
+            {
+                NitriModelBase._instance.log.LogError("Unable to find UI parent! Aborted icon replacement.");
+                return;
+            }
+
+            if (NitriModelBase._instance.IconParent == null)
+            {
+                NitriModelBase._instance.log.LogError("Unable to find NT UI parent! Aborted icon replacement.");
+                return;
+            }
+
+            UIParent.SetActive(true);
+            NitriModelBase._instance.IconParent.SetActive(true);
         }
     }
 

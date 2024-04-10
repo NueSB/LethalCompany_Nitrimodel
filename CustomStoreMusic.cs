@@ -22,6 +22,7 @@ namespace NitriModel
         [HarmonyPrefix]
         static void ApplyMusic(ItemDropship __instance)
         {
+            
             AudioSource music = __instance.transform.Find("Music").GetComponent<AudioSource>();
             AudioSource musicFar = __instance.transform.Find("Music").GetChild(0).GetComponent<AudioSource>();
 

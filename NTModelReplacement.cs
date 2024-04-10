@@ -12,6 +12,7 @@ using HarmonyLib;
 using GameNetcodeStuff;
 using System.Reflection;
 using ModelReplacement.AvatarBodyUpdater;
+using ModelReplacement.Scripts.Player;
 
 namespace NitriModel
 {
@@ -32,6 +33,10 @@ namespace NitriModel
                     break;
                 case "Purple Suit":
                     replacementMat = NitriModelBase.mainBundle.LoadAsset<Material>("NTMaterialPurple");
+                    break;
+
+                default:
+                    replacementMat = NitriModelBase.mainBundle.LoadAsset<Material>("NTMaterial");
                     break;
             }
 
@@ -62,6 +67,9 @@ namespace NitriModel
                 case "Purple Suit":
                     replacementMat = NitriModelBase.mainBundle.LoadAsset<Material>("nt-viewmodel-purple");
                     break;
+                default:
+                    replacementMat = NitriModelBase.mainBundle.LoadAsset<Material>("nt-viewmodel");
+                    break;
             }
 
             SkinnedMeshRenderer[] meshes = obj.GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -76,9 +84,9 @@ namespace NitriModel
             return obj;
         }
 
-        protected override AvatarUpdater GetAvatarUpdater()
+        protected override ViewModelUpdater GetViewModelUpdater()
         {
-            return new AvatarUpdaterWithArms();
+            return new NTViewModelUpdater();
         }
 
         protected override void OnDeath()

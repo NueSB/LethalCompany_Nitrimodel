@@ -41,9 +41,9 @@
     <Reference Include="BepInEx">
       <HintPath>$(LethalCompanyPath)\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="ModelReplacementAPI, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ModelReplacementAPI, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(LethalCompanyPath)\Lethal Company_Data\Managed\moddlls\ModelReplacementAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\moddlls\ModelReplacementAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -95,10 +95,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LateTransformer.cs" />
     <Compile Include="CustomCursor.cs" />
     <Compile Include="CustomPlayerIcon.cs" />
     <Compile Include="CustomStoreMusic.cs" />
-    <Compile Include="AvatarUpdater.cs" />
+    <Compile Include="NTViewModelUpdater.cs" />
     <Compile Include="NTModelReplacement.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
